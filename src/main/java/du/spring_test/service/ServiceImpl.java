@@ -1,20 +1,20 @@
 package du.spring_test.service;
 
-import du.spring_test.repository.DAO;
+import du.spring_test.repository.IMessageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("oldService")
 public class ServiceImpl implements MyService {
 
-    private final DAO dao;
+    private final IMessageDAO IMessageDao;
 
     @Autowired
-    public ServiceImpl(DAO dao) {
-        this.dao = dao;
+    public ServiceImpl(IMessageDAO IMessageDao) {
+        this.IMessageDao = IMessageDao;
     }
 
     public String getMessage() {
-        return dao.getMessage("ru");
+        return IMessageDao.getMessage("ru");
     }
 }
